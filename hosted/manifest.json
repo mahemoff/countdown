@@ -10,7 +10,7 @@
   "background_page": "background.html",
   "app": {
     "launch": {
-      "web_url": "http://play.dev/countdown/hosted/launchLocalPath.html"
+      "web_url": "http://play.dev/countdown/hosted/"
     }
   }
 }
