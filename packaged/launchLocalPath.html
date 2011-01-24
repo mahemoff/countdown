@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <style>
+      body { margin: 0; padding: 0; }
+      body.complete { background: red; }
+      body.complete #durationEntry { opacity: 0.1; }
+      #durationEntry { background: #fef; margin: 20px; padding: 10px 20px; }
+      #durationEntry, #durationEntry input { text-align: right; }
+      #secsRemaining { text-align: center; font-size: 200pt; margin: 0; }
+      #unitsMessage { margin: 10pt; text-align: center; display: none; }
+    </style>
+    <script src="utils.js"></script>
+  </head>
+  <body>
+
+    <section id="durationEntry">
+      Countdown Duration (secs): <input id="durationSecs" size="5" value="60" />
+      <button id="schedule">start</button>
+    </section>
+
+    <div id="secsRemaining"></div>
+
+  </body>
+  <script>
+  window.onload = function() {
+    document.getElementById("schedule").onclick = function() {
+      var durationSecs = parseInt(document.getElementById("durationSecs").value);
+      if (durationSecs && durationSecs>0) 
+        chrome.extension.sendRequest({durationSecs: durationSecs});
+    };
+
+    document.getElementsByTagName("body")[0].onkeypress = 
+    document.getElementsByTagName("body")[0].onclick = 
+    function() {
+      this.className = "";
+    }
+
+  };
+
+  chrome.extension.onRequest.addListener(
+    function(request, sender, sendResponse) {
+      document.getElementById("secsRemaining").innerHTML = format(request.secsRemaining);
+      if (request.secsRemaining<=0) {
+        document.getElementsByTagName("body")[0].className = "complete";
+        document.getElementById("secsRemaining").innerHTML = "Done";
+        document.getElementsByTagName("audio")[0].currentTime = 0;
+        document.getElementsByTagName("audio")[0].play();
+      }
+    }
+  );
+  </script>
+  <audio src="http://net2.madringtones.org/data/98/510310/files/510310.mp3" preload></audio>
+</html>

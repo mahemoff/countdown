@@ -1,0 +1,20 @@
+{
+  "name": "Countdown",
+  "version": "1.0",
+  "description": "A countdown app",
+  "icons": {
+    "24": "countdown24.png",
+    "128": "countdown128.png"
+  },
+  // "browser_action": {
+    // "default_icon": "countdown19.png",
+    // "popup": "browserActionPopup.html"
+  // },
+  "permissions": ["notifications"],
+  "background_page": "background.html",
+  "app": {
+    "launch": {
+      "local_path": "launchLocalPath.html"
+    }
+  }
+}

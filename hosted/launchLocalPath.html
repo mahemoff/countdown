@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <style>
+      body { margin: 0; padding: 0; }
+      #durationEntry { background: #fef; margin: 20px; padding: 10px 20px; }
+      #durationEntry, #durationEntry input { text-align: right; }
+      #secsRemaining { text-align: center; font-size: 200pt; margin: 0; }
+      #unitsMessage { margin: 10pt; text-align: center; display: none; }
+    </style>
+  </head>
+  <body>
+
+    <section id="durationEntry">
+      Countdown Duration (secs): <input id="durationSecs" size="5" value="60" />
+      <button id="schedule">start</button>
+    </section>
+
+    <div id="secsRemaining"></div>
+
+  </body>
+  <script>
+  var win = window.open("background.html", "background", "background");
+
+  window.onload = function() {
+    document.getElementById("schedule").onclick = function() {
+      var durationSecs = parseInt(document.getElementById("durationSecs").value);
+      if (durationSecs && durationSecs>0) 
+        win.startCountdown(durationSecs);
+      console.log("w", win);
+    };
+  };
+
+  function updateTime(secsRemaining) {
+    document.getElementById("secsRemaining").innerHTML = secsRemaining;
+    if (secsRemaining<=0)
+      document.getElementById("secsRemaining").innerHTML = "Done";
+  }
+
+  </script>
+</html>

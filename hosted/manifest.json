@@ -1,0 +1,16 @@
+{
+  "name": "Countdown",
+  "version": "1.0",
+  "description": "A countdown app",
+  "icons": {
+    "24": "countdown24.png",
+    "128": "countdown128.png"
+  },
+  "permissions": ["notifications", "background"],
+  "background_page": "background.html",
+  "app": {
+    "launch": {
+      "web_url": "http://play.dev/countdown/hosted/launchLocalPath.html"
+    }
+  }
+}

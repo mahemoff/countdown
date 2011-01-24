@@ -1,0 +1,21 @@
+DESCRIPTION
+This is a simple countdown tool to demonstrate installable web app functionality
+in Google Chrome, both a packaged and a hosted edition.
+
+The tutorial was originally presented when Chrome apps were in development,
+and it was possible for an app to also include a browser/page action. Thus, 
+the packaged app demo is slightly out of date. Caveat emptor!
+
+AUTHOR
+Michael Mahemoff
+
+LICENSE
+MIT License
+
+CREDITS
+Image reproduced under a Creative Commons license from:
+http://www.iconfinder.com/icondetails/34292/128/timer_icon
+
+date.js used under MIT license - see top of date.js file.
+(Note date.js is not used here and only included for pedagogical purposes,
+so that developers can extend the app as provided here.)

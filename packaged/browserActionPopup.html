@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script>
+      chrome.extension.onRequest.addListener(
+        function(request, sender, sendResponse) {
+          document.getElementById("secsRemaining").innerHTML = request.secsRemaining || "Done";
+        }
+      );
+    </script>
+  </head>
+  <style>
+    h1 { font-weight: normal; font-size: 75%; text-align: right}
+    #secsRemaining { font-weight: bold; font-size: 100%; text-align: center; margin-bottom: 2em; }
+  </style>
+<body>
+  <h1>Countdown</h1>
+  <div id="secsRemaining"></div>
+</body>
+</html>
+
+
